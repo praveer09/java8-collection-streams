@@ -17,19 +17,15 @@ public class Person {
         MALE, FEMALE
     }
 
-    public String getName() {
+    public String name() {
         return name;
     }
 
-    public Sex getGender() {
+    public Sex gender() {
         return gender;
     }
 
-    public LocalDate getBirthday() {
-        return birthday;
-    }
-
-    public int getAge() {
+    public int age() {
         return LocalDate.now().getYear() - birthday.getYear();
     }
 }
