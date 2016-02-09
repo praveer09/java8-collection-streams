@@ -55,11 +55,11 @@ public class PersonTest {
 
     @Test // SELECT name FROM Person WHERE gender = FEMALE AND year(birthday) = '1987'
     public void shouldFilterBasedOnGenderAndBirthYear() {
-        Predicate<Person> genderIsFemale = person -> person.gender().equals(FEMALE);
+        Predicate<Person> isFemale = person -> person.gender().equals(FEMALE);
         Predicate<Person> birthYearIs1987 = person -> person.birthday().getYear() == 1987;
 
         List<String> names = team.stream()
-            .filter(genderIsFemale.and(birthYearIs1987))
+            .filter(isFemale.and(birthYearIs1987))
             .map(Person::name)
             .collect(toList());
 
@@ -68,11 +68,11 @@ public class PersonTest {
 
     @Test // SELECT name FROM Person WHERE gender = FEMALE OR year(birthday) = '1987'
     public void shouldFilterBasedOnGenderOrBirthYear() {
-        Predicate<Person> genderIsFemale = person -> person.gender().equals(FEMALE);
+        Predicate<Person> isFemale = person -> person.gender().equals(FEMALE);
         Predicate<Person> birthYearIs1987 = person -> person.birthday().getYear() == 1987;
 
         List<String> names = team.stream()
-            .filter(genderIsFemale.or(birthYearIs1987))
+            .filter(isFemale.or(birthYearIs1987))
             .map(Person::name)
             .collect(toList());
 
